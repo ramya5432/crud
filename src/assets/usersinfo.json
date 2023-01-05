@@ -1,0 +1,44 @@
+{
+  "add": [
+    {
+      "FirstName": "renukadevi",
+      "LastName": "renuka",
+      "Email": "asfdsgf@gmail.com",
+      "MobileNumber": "1234567123",
+      "Departments": "Management",
+      "Roles": "Fabric Manager",
+      "ISACTIVE": true,
+      "id": "BW_f4sc"
+    },
+    {
+      "FirstName": "ramya",
+      "LastName": "adsdf",
+      "Email": "asfdsgf@gmail.com",
+      "MobileNumber": "1234567123",
+      "Departments": "Fabric",
+      "Roles": "Fabric Manager",
+      "ISACTIVE": false,
+      "id": "fyyZOyk"
+    },
+    {
+      "FirstName": "ramyasri",
+      "LastName": "adsdf",
+      "Email": "asfdsgf@gmail.com",
+      "MobileNumber": "1234567123",
+      "Departments": "Fabric",
+      "Roles": "Director",
+      "ISACTIVE": false,
+      "id": "enLus2b"
+    },
+    {
+      "FirstName": "akithak",
+      "LastName": "adsdf",
+      "Email": "asfdsgf@gmail.com",
+      "MobileNumber": "1234567123",
+      "Departments": "Fabric",
+      "Roles": "Fabric Manager",
+      "ISACTIVE": true,
+      "id": "flm0fuk"
+    }
+  ]
+}

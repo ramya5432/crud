@@ -1,0 +1,193 @@
+<div class="container-fluid mt-4">
+  <h1><b>USERS </b></h1>
+
+
+
+  <nav class="nav">
+    <mat-nav-list>
+      <!-- <input class="form-control" type="text" name="search" [(ngModel)]="searchText"
+        placeholder="Start searching"> -->
+      <!-- <a ><mat-icon>home</mat-icon>HOME</a>  -->
+    </mat-nav-list>
+
+    <div class="style">
+      <button type="button" class="btn btn-outline-success" (click)="createform()" data-toggle="modal"
+        data-target="#exampleModal">Add user</button>
+    </div>
+
+  </nav>
+
+
+  <table class="table table-border">
+    <thead class="color">
+      <tr>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Email</th>
+        <th scope="col">MobileNumber</th>
+        <th scope="col">Roles</th>
+        <th scope="col">Departments</th>
+        <th scope="col">Active</th>
+        <th scope="col">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let use of users ">
+        <td>{{use['FirstName']}}</td>
+        <td>{{use.LastName}}</td>
+        <td>{{use.Email}}</td>
+        <td>{{use.MobileNumber}}</td>
+        <td>{{use.Roles}}</td>
+        <td>{{use.Departments}}</td>
+        <td>
+          <mat-checkbox onclick="false" disabled="Form.invalid" [checked]="use.ISACTIVE"></mat-checkbox>
+        </td>
+
+        <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal" (click)="updateuser(use)">
+          <mat-icon>edit</mat-icon>
+        </button> &nbsp;
+        <button (click)="deleteuser(use)" class="btn btn-danger">
+          <mat-icon>delete</mat-icon>
+        </button>
+
+
+      </tr>
+      <tr>
+        <!-- <td *ngIf="(users |filter:searchText).length == 0" colspan="10">no record fornd</td> -->
+
+      </tr>
+    </tbody>
+  </table>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false"
+    data-backdrop="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">users </h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="Form">
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label>First Name</label>
+                  <input type="text" class="form-control" formControlName="FirstName" required
+                    [ngClass]="{ 'is-invalid': f['FirstName'].touched  && f.FirstName.errors}">
+                  <span style="color: red;" *ngIf="f.FirstName?.touched && f.FirstName?.errors ">
+                    please enter firstName </span>
+                   
+                  <!-- <div style="color:red;
+                      " *ngIf="f.firstName.touched && f.firstName.errors">
+                        <div *ngIf="f.firstName.touched && f.firstName.errors" class="">
+                            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                        </div>
+                    </div> -->
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label>Last Name</label>
+                  <input type="text" class="form-control" formControlName="LastName"
+                    [ngClass]="{ 'is-invalid': f['LastName'].touched && f.LastName.errors }">
+
+                  <span style="color: red;" *ngIf="f.LastName?.touched && f.LastName?.errors ">
+                    please enter lastName </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-8">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email</label>
+                  <input type="email" class="form-control" formControlName="Email" aria-describedby="emailHelp"
+                    [ngClass]="{ 'is-invalid': f['Email'].touched && f.Email.errors }">
+                  <span style="color: red;" *ngIf="f.Email?.touched && f.Email?.errors ">
+                    Enter vaild Email </span>
+                </div>
+
+              </div>
+
+              <div class="col-4">
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Mobile Number</label>
+                  <input type="text" class="form-control" formControlName="MobileNumber"
+                    [ngClass]="{ 'is-invalid': f['MobileNumber'].touched && f.MobileNumber.errors }">
+                  <span style="color: red;" *ngIf="f.MobileNumber?.touched && f.MobileNumber?.errors ">
+                    Enter valid MobileNumber </span>
+
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-7">
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Departments</label>
+                  <select class="form-control" formControlName="Departments" required
+                    [ngClass]="{ 'is-invalid': f['Departments'].touched && f.Departments.errors  }">
+
+
+                    <option></option>
+                    <option>Fabric </option>
+                    <option>Management</option>
+                    <option>Maintenance</option>
+                    <option>Accounts</option>
+
+                  </select>
+                  <span style="color: red;" *ngIf="f.Departments?.touched && f.Departments?.errors ">
+                    please select one</span>
+                </div>
+              </div>
+
+              <div class="col-5">
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Roles</label>
+                  <select class="form-control" formControlName="Roles" required
+                    [ngClass]="{ 'is-invalid': f['Roles'].touched && f.Roles.errors  }">
+
+
+                    <option></option>
+                    <option>Fabric Manager</option>
+                    <option>Audit Manager</option>
+                    <option>Director</option>
+                    <option>Admin</option>
+
+                  </select>
+                  <span style="color: red;" *ngIf="f.Roles?.touched && f.Roles.errors ">
+                    please select one</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group form-check">
+              <input type="checkbox" formControlName="ISACTIVE" value="false" class="form-check-input">
+              <label class="form-check-label" for="exampleCheck1">Active</label>
+            </div>
+
+
+
+          </form>
+        </div>
+        <!-- <button color="primary" [disabled]="Form.invalid" (click)="onSubmit()" type="reset">Submit</button> -->
+        <diV class="s mt-2">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updatedetails()"
+            *ngIf="showupdatebutton">update</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal"  (click)="onSubmit()"
+           *ngIf="showaddbutton">submit</button><br><br>
+          <!-- <button class="btn btn-primary"  data-dismiss="modal"  [disabled]="Form.invalid" (click)="onupdate(use)" type="button">update</button> -->
+        </diV>
+
+      </div>
+    </div>
+  </div>
+
+</div>

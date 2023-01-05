@@ -1,0 +1,44 @@
+.image{
+    width: 100%;
+    height: 100vh;
+    background-image: url(src\assets\images\nature.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.content{
+    color:#fff;
+    margin-left: 3%;
+  font-size: 70px;
+ padding-top: 10%;
+}
+.style{
+    color: #fff;
+    margin-left: 5%;
+    font-size: 20px;
+    
+}
+.sty{
+    color: #fff;
+    margin-left: 15%;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 10px 50px;
+    border: 2px solid rgb(48, 124, 160);
+    background: transparent;
+  
+}
+.sty:hover{
+    background-color: rgb(48, 124, 160);
+}
+.styl{
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 10px 50px;
+    border: 2px solid rgb(48, 124, 160);
+    background: transparent;
+    
+}
+.styl:hover{
+    background-color: rgb(48, 124, 160);
+}
